@@ -1,14 +1,14 @@
 # Dashboard project - backend
 
-steps to run the project-
+steps to run the project:
 
--Clone the github repository: https://github.com/gertzMan/dashboard-backend
+- Clone the github repository: https://github.com/gertzMan/dashboard-backend
 
 - cd in the project folder
 
--Run "composer install" to install the project packages specified in the composer.json file
+- Run "composer install" to install the project packages specified in the composer.json file
 
-- In have added the .env file to make to make the application easy to test. THIS WOULD NEVER BE DONE IN A REAL PROJECT
+- I added the .env file to make the app easy to test. THIS WOULD NEVER BE DONE IN A REAL PROJECT
 
 - Run "php artisan key:generate" to generate the application key
 
@@ -16,15 +16,15 @@ steps to run the project-
 
 - Run "php artisan migrate" to generate the database tables specified in the migrations folder. This will create the users and messages tables
 
--Next, we create fake data for the messages so we can generate some messages for the api
+- Next, we create fake data for the messages so we can generate some messages for the api
 
 - To generate the fake messages, run "php artisan db:seed --class=MessagesTableSeeder"
 
--To start the api, run "php artisan serve"
+- To start the api, run "php artisan serve"
 
-API Endpoints
+## API Endpoints
 
-Authentication:
+### Authentication
 
 GET|HEAD api/auth/dashboard: AuthController@dashboard
 
@@ -32,41 +32,39 @@ POST api/auth/login: AuthController@login
 
 POST api/auth/logout: AuthController@logout
 
-POST api/auth/refresh: AuthController@refresh
-
 POST api/auth/register: AuthController@register
 
-Messages:
+### Messages
 
 GET|HEAD api/auth/messages: MessageController@get_messages
 
-Endpoint Documentation
+## Endpoint Documentation
 
-Authentication
+### Authentication
 
 Authentication for this API is handled using JWT (JSON Web Tokens).
 
-Steps for Authentication:
+#### Steps for Authentication:
 
-Registration: Create an account by sending a POST request to /api/register with required user details.
+##### Registration: Create an account by sending a POST request to /api/register with required user details.
 
-username: Your username
+- username: Your username
 
-password: Your password
+- password: Your password
 
-Login: Obtain a JWT token by sending a POST request to /api/auth/login.
+##### Login: Obtain a JWT token by sending a POST request to /api/auth/login.
 
-password: Your password
+- password: Your password
 
-This will return a token. Use this token in the Authorization header for subsequent requests.
+- This will return a token. Use this token in the Authorization header for subsequent requests.
 
-Logout: Invalidate the token by sending a POST request to /api/logout.
+##### Logout: Invalidate the token by sending a POST request to /api/logout.
 
-API Routes
+## API Routes
 
-Users:
+### Users
 
-Register:
+## Register
 
 Endpoint: /api/auth/register
 
@@ -80,7 +78,7 @@ username: Username (Required)
 
 password: Password (Required)
 
-Login:
+## Login:
 
 Endpoint: /api/auth/login
 
@@ -94,7 +92,7 @@ username: User's email (Required)
 
 password: User's password (Required)
 
-Logout:
+## Logout:
 
 Endpoint: /api/auth/logout
 
@@ -104,7 +102,7 @@ Description: Log out and invalidate the JWT token.
 
 Authorization: Bearer <valid_token>
 
-Messages:
+## Messages:
 
 GetMessages:
 
@@ -115,5 +113,4 @@ Method: GET
 Description: Fetch messages for the application.
 
 Notice
-
-⚠️ All API responses are in JSON Format.
+All API responses are in JSON Format.
